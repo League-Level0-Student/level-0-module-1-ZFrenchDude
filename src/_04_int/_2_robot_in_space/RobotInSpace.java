@@ -10,6 +10,7 @@ import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 
 import javax.swing.JApplet;
+import javax.swing.JOptionPane;
 
 import org.jointheleague.graphical.robot.Robot;
 
@@ -28,15 +29,30 @@ public class RobotInSpace implements KeyEventDispatcher {
 	private void moveRobot(int keyPressed) throws InterruptedException {
 		// 2. Print out the keyPressed variable and write down the numbers for
 		// each arrow key
-
+System.out.println(keyPressed);
 		// 3. If the up arrow is pressed, move the Robot up the screen.
-
+if(keyPressed==38) {
+	rob.setAngle(0);
+	rob.microMove(2);
+}
 		// 4. If the down arrow is pressed, move the Robot down.
-
+System.out.println(keyPressed);
+if(keyPressed==40) {
+	rob.setAngle(180);
+	rob.microMove(2);
+}
 		// 5. If the left arrow is pressed, make the Robot go left.
-
+System.out.println(keyPressed);
+if(keyPressed==37) {
+	rob.setAngle(270);
+	rob.microMove(2);
+}
 		// 6. If right is pressed, move the Robot right.
-
+System.out.println(keyPressed);
+if(keyPressed==39) {
+	rob.setAngle(90);
+	rob.microMove(2);
+}
 		// 7. Run your program and move the Robot to R2-D2 for a surprise!
 	}
 
@@ -76,7 +92,7 @@ public class RobotInSpace implements KeyEventDispatcher {
 	}
 
 	public void playEureka() {
-		System.out.println("EUREKA!");
+		JOptionPane.showMessageDialog(null, "EUREKA!");
 		try {
 			AudioClip sound = JApplet.newAudioClip(getClass().getResource("r2d2-eureka.wav"));
 			sound.play();
